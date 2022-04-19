@@ -1,0 +1,41 @@
+//Problem -- Move all negative numbers to beginning and positive to end with constant extra space
+
+
+//Solution
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+//Dutch Natinal Flag Algo
+public class movenegativewospace {
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Enter size: ");
+        int size = in.nextInt();
+        int[] a = new int[size];
+        for (int i = 0; i < size; i++) {
+            a[i] = in.nextInt();
+        }
+
+        int low=0;
+        int high=size-1;
+        int temp=0;
+
+        while (low<=high){
+            if(a[low]<0){
+                low++;
+            }
+            else {
+                temp=a[high];
+                a[high]=a[low];
+                a[low]=temp;
+                high--;
+            }
+        }
+
+        System.out.println(Arrays.toString(a));
+    }
+}
